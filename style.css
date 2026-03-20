@@ -115,8 +115,8 @@ nav ul li a i {
 }
 
 nav ul li a.active, nav ul li a:active {
-    color: var(--primary-color);
-    text-shadow: 0 0 10px var(--primary-color);
+    color: var(--accent-color) !important;
+    text-shadow: 0 0 10px var(--accent-color);
 }
 
 /* =========================================
