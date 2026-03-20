@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menù | The ROCK Cafe</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Stile aggiuntivo per le varianti di prezzo (es. per le birre) */
+        .price-variants {
+            margin-top: 10px;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        .price-variants span {
+            background-color: rgba(214, 40, 40, 0.1);
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .menu-note {
+            margin-top: 20px;
+            font-size: 0.9rem;
+            font-style: italic;
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">THE <span class="rock">ROCK</span> <span class="cafe">CAFE</span></div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="menu.html" style="color:var(--primary-color);">Menù</a></li>
+                <li><a href="index.html#contatti">Contatti</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero hero-menu">
+        <h1 style="font-size: 4rem;">Il Nostro Menù</h1>
+        <p>Food, Beer & Rock 'n' Roll</p>
+    </section>
+
+    <section class="menu-section">
+
+        <div class="menu-category">
+            <h2>🍔 Food</h2>
+            <div class="menu-grid">
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>1. CLASSIC ROCK</h3>
+                        <span class="price">€ 7,00</span>
+                    </div>
+                    <p>hamburger / cotoletta *, pomodoro, insalata iceberg, cheddar, ketchup, maionese</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>2. DEMON FIRE</h3>
+                        <span class="price">€ 8,00</span>
+                    </div>
+                    <p>hamburger / cotoletta *, pomodoro, insalata iceberg, scamorza affumicata, cipolla rossa, ‘nduja, salsa barbecue</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>3. VERTIGO</h3>
+                        <span class="price">€ 7,00</span>
+                    </div>
+                    <p>hamburger *, bacon, cheddar, ketchup, maionese</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>4. SOUL CHICKEN</h3>
+                        <span class="price">€ 7,00</span>
+                    </div>
+                    <p>cotoletta *, insalata iceberg, cheddar, maionese</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>5. MAGNOLIA</h3>
+                        <span class="price">€ 7,00</span>
+                    </div>
+                    <p>hamburger / cotoletta *, insalata iceberg, parmigiano, maionese, salsa d’aceto balsamico</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>6. MOTHER</h3>
+                        <span class="price">€ 8,00</span>
+                    </div>
+                    <p>hamburger / cotoletta *, pancetta, gorgonzola, salsa di peperoncini, granella di noci</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>7. SUPERSONIC</h3>
+                        <span class="price">€ 7,00</span>
+                    </div>
+                    <p>hamburger / cotoletta *, rucola, salame, cipolla croccante, emmental, salsa boscaiola</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>8. PSYCHO KILLER</h3>
+                        <span class="price">€ 9,00</span>
+                    </div>
+                    <p>hamburger / cotoletta *, radicchio, scamorza affumicata, patate rustiche, pomodoro, salsa d’aceto balsamico, senape, maionese<br>servito con patate rustiche</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>9. ALABAMA</h3>
+                        <span class="price">€ 9,00</span>
+                    </div>
+                    <p>hamburger / cotoletta *, rucola, bacon, cheddar, cipolla croccante, crema di peperoni secchi, salsa di cipolle rosse, mostarda al miele</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>10. PIG</h3>
+                        <span class="price">€ 9,00</span>
+                    </div>
+                    <p>porchetta, scamorza affumicata, cipolla rossa, cavolo rosso, maionese o salsa barbecue</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>11. MENU COSTINE</h3>
+                        <span class="price">€ 20,00</span>
+                    </div>
+                    <p>600g di costine di maiale cotte al vapore con salsa a scelta + baguette calda + patate rustiche con ketchup + birra Tucher 0,3l alla spina oppure una bottiglia di birra a scelta</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>12. MENU SCARPETTA</h3>
+                    </div>
+                    <p>chiedere allo staff</p>
+                </div>
+            </div>
+            <p class="menu-note">*doppio hamburger / cotoletta + € 2,00</p>
+        </div>
+
+        <div class="menu-category">
+            <h2>🍟 Sfiziosità</h2>
+            <div class="menu-grid">
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>PATATINE</h3>
+                        <span class="price">€ 3,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>HABANERO</h3>
+                        <span class="price">€ 3,00</span>
+                    </div>
+                    <p>porzione da 4</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>CROCCHETTE DI PATATE</h3>
+                        <span class="price">€ 2,50</span>
+                    </div>
+                    <p>porzione da 5</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>ANELLI DI CIPOLLA</h3>
+                        <span class="price">€ 3,50</span>
+                    </div>
+                    <p>porzione da 5</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>MOZZARELLE STICK</h3>
+                        <span class="price">€ 4,00</span>
+                    </div>
+                    <p>porzione da 4</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>ALETTE DI POLLO MESSICANE</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>porzione da 4</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>BREZEL</h3>
+                        <span class="price">€ 1,50</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h2>🍺 Birre</h2>
+            <div class="menu-grid">
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>TUCHER PILSENER</h3>
+                    </div>
+                    <p>Tucher Pilsener è una birra a bassa fermentazione, appartenente al segmento Lager. Si caratterizza per il suo stampo tipicamente teutonico, dove l'amaro prevale per la generosa presenza del luppolo: una pils autentica dunque. Consigliata con primi piatti leggeri a base di verdure, carni bianche, formaggi e pizza.</p>
+                    <div class="price-variants">
+                        <span>0,20 l - € 2,50</span>
+                        <span>0,30 l - € 3,50</span>
+                        <span>0,50 l - € 6,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>CARLSBERG UNFILTERED</h3>
+                    </div>
+                    <p>Carlsberg Unfiltered è una birra Pilsner che non viene sottoposta a processo di filtratura. In questa birra, dall'aspetto dorato e opalescente, si trovano ancora i lieviti rimasti in sospensione durante la fase di maturazione. Questo processo restituisce un aroma maltato più intenso, note di crosta di pane e aromi di luppolo evidenti, che tendono verso l'agrumato.</p>
+                    <div class="price-variants">
+                        <span>0,25 l - € 3,50</span>
+                        <span>0,50 l - € 6,50</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>BROOKLYN EAST IPA</h3>
+                    </div>
+                    <p>Una birra color ambra, dalla schiuma compatta e persistente. I profumi dei luppoli inglesi (East Kent Golding e americani (Centennial) regalano sentori erbacei, speziati e soprattutto agrumati, a cui rispondono le note più calde dei malti, con sensazioni caramellate e di frutta matura, prima che l'amaro dei luppoli prenda il sopravvento lasciando una secchezza finale tipica dello stile.</p>
+                    <div class="price-variants">
+                        <span>0,25 l - € 5,00</span>
+                        <span>0,40 l - € 7,50</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>KRONENBOURG 1664 BLANC</h3>
+                    </div>
+                    <p>Kronenbourg 1664 Blanc è una birra di frumento leggera, frizzante e rinfrescante caratterizzata da note agrumate e fruttate. Al sorso risulta delicata ed equilibrata, con aromi di pesca bianca, frutta esotica e spezie. Grazie a una miscela meravigliosamente squisita di luppoli pregiati e un pizzico di coriandolo, ha una nota speziata e un sottile gusto amaro, che è bilanciato dall'aroma di pesca bianca.</p>
+                    <div class="price-variants">
+                        <span>0,30 l - € 4,50</span>
+                        <span>0,50 l - € 7,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>GRIMBERGEN DOUBLE AMBRÉE</h3>
+                    </div>
+                    <p>La miscela di malti a diversa tostatura dona a questa birra ad alta fermentazione un colore rossastro, quasi mogano, e una schiuma tendente alle tonalità dell'avorio. Il suo profilo organolettico richiama aromi tostati e fruttati con note di caramello, prugne secche, cacao e frutta essiccata.</p>
+                    <div class="price-variants">
+                        <span>0,25 l - € 4,50</span>
+                        <span>0,50 l - € 7,50</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h2>🍹 Cocktail</h2>
+            <div class="menu-grid">
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>APEROL SPRITZ</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>prosecco, aperol, soda</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>BLUE SPRITZ</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>prosecco, blue curaçao, soda</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>NEGRONI</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>bitter campari, vermouth rosso, gin</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>MARTINI</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>gin, dry vermouth</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>MARGARITA</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>tequila, triple sec, lime</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>MOJITO</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>rum, lime, menta, zucchero, soda</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>CUBA LIBRE</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>rum, coca-cola, lime</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>MOSCOW / LONDON MULE</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>vodka / gin, ginger beer, lime</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>GIN / VODKA TONIC</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>gin / vodka, acqua tonica</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>GIN / VODKA LEMON</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>gin / vodka, soda al limone</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>LONG ISLAND ICED TEA</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>gin, rum, vodka, tequila, triple sec, limone, sciroppo di zucchero, coca-cola</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>BLUE LAGOON</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>vodka, blue curaçao, limone, sprite, sciroppo di zucchero</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>GIN / VODKA ROSA</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>gin / vodka, soda al pompelmo</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>ESPRESSO MARTINI</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>vodka, kahlúa, espresso</p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h2>🥃 Liquori, Distillati e Vini</h2>
+            <div class="menu-grid">
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>AMARI</h3>
+                        <span class="price">€ 3,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>GRAPPE BIANCHE</h3>
+                        <span class="price">€ 3,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>GRAPPE BARRICATE</h3>
+                        <span class="price">€ 3,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>WHISKY</h3>
+                        <span class="price">€ 4,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>CREMA DI WHISKY</h3>
+                        <span class="price">€ 2,50</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>LIMONCELLO</h3>
+                        <span class="price">€ 2,50</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>GENZIANA</h3>
+                        <span class="price">€ 2,50</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>RATTAFIA</h3>
+                        <span class="price">€ 2,50</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>RUM E PERA</h3>
+                        <span class="price">€ 3,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>PROSECCO</h3>
+                        <span class="price">€ 3,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>CALICE DI VINO ROSSO</h3>
+                        <span class="price">€ 2,00</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h2>🥤 Soft Drink</h2>
+            <div class="menu-grid">
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>ACQUA</h3>
+                        <span class="price">€ 1,00</span>
+                    </div>
+                    <p>naturale, frizzante</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>LATTINA</h3>
+                        <span class="price">€ 2,00</span>
+                    </div>
+                    <p>coca-cola zero, pepsi, pepsi al limone, fanta, sprite</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>THE ALLA PESCA</h3>
+                        <span class="price">€ 2,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>ACQUA TONICA</h3>
+                        <span class="price">€ 2,50</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>CRODINO</h3>
+                        <span class="price">€ 2,50</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>CAFFÈ</h3>
+                        <span class="price">€ 1,00</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="menu-category">
+            <h2>🍰 Dessert</h2>
+            <div class="menu-grid">
+                
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>VECCHIO AMARO DEL CAPO</h3>
+                        <span class="price">€ 8,00</span>
+                    </div>
+                    <p>(Semifreddo + cioccolatini + Shot di Vecchio Amaro del Capo)</p>
+                    <p style="margin-top:5px; font-weight:bold;">• solo semifreddo: € 5,00</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>SOUFFLÉ AL CIOCCOLATO CALDO</h3>
+                        <span class="price">€ 4,00</span>
+                    </div>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>PANCAKE</h3>
+                        <span class="price">€ 5,00</span>
+                    </div>
+                    <p>nutella, panna, topping al cioccolato/frutti di bosco</p>
+                </div>
+
+                <div class="menu-item">
+                    <div class="menu-item-header">
+                        <h3>PANCAKE</h3>
+                        <span class="price">€ 4,00</span>
+                    </div>
+                    <p>panna, topping allo sciroppo d'acero</p>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <footer>
+        <div class="social-links">
+            <a href="#">Facebook</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">TikTok</a> | 
+            <a href="https://wa.me/393880584145">WhatsApp</a>
+        </div>
+        <p>&copy; 2026 The ROCK Cafe. Tutti i diritti riservati. Stay Rock!</p>
+    </footer>
+
+</body>
+</html>
