@@ -4,36 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menù | The ROCK Cafe</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Open+Sans:wght@400;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <style>
-        /* Stile aggiuntivo per le varianti di prezzo (es. per le birre) */
-        .price-variants {
-            margin-top: 10px;
-            font-weight: 600;
-            color: var(--primary-color);
-            font-size: 1.1rem;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-        .price-variants span {
-            background-color: rgba(214, 40, 40, 0.1);
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-        .menu-note {
-            margin-top: 20px;
-            font-size: 0.9rem;
-            font-style: italic;
-            color: var(--primary-color);
-        }
-    </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">THE <span class="rock">ROCK</span> <span class="cafe">CAFE</span></div>
+        <div class="logo">
+            <img src="images/logo.png" alt="The ROCK Cafe Logo">
+        </div>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -44,14 +24,14 @@
     </header>
 
     <section class="hero hero-menu">
-        <h1 style="font-size: 4rem;">Il Nostro Menù</h1>
-        <p>Food, Beer & Rock 'n' Roll</p>
+        <h1>Il Nostro Menù</h1>
+        <p class="motto-rock">Food, Beer & Rock 'n' Roll</p>
     </section>
 
     <section class="menu-section">
 
         <div class="menu-category">
-            <h2>🍔 Food</h2>
+            <h2><i class="fas fa-hamburger" style="font-size: 2.5rem; margin-right: 15px;"></i> Food</h2>
             <div class="menu-grid">
                 
                 <div class="menu-item">
@@ -149,11 +129,11 @@
                     <p>chiedere allo staff</p>
                 </div>
             </div>
-            <p class="menu-note">*doppio hamburger / cotoletta + € 2,00</p>
+            <p style="margin-top: 20px; font-style: italic; color: var(--primary-color);">*doppio hamburger / cotoletta + € 2,00</p>
         </div>
 
         <div class="menu-category">
-            <h2>🍟 Sfiziosità</h2>
+            <h2><i class="fas fa-fire" style="font-size: 2.5rem; margin-right: 15px;"></i> Sfiziosità</h2>
             <div class="menu-grid">
                 
                 <div class="menu-item">
@@ -214,7 +194,7 @@
         </div>
 
         <div class="menu-category">
-            <h2>🍺 Birre</h2>
+            <h2><i class="fas fa-beer" style="font-size: 2.5rem; margin-right: 15px;"></i> Birre</h2>
             <div class="menu-grid">
                 
                 <div class="menu-item">
@@ -244,7 +224,7 @@
                     <div class="menu-item-header">
                         <h3>BROOKLYN EAST IPA</h3>
                     </div>
-                    <p>Una birra color ambra, dalla schiuma compatta e persistente. I profumi dei luppoli inglesi (East Kent Golding e americani (Centennial) regalano sentori erbacei, speziati e soprattutto agrumati, a cui rispondono le note più calde dei malti, con sensazioni caramellate e di frutta matura, prima che l'amaro dei luppoli prenda il sopravvento lasciando una secchezza finale tipica dello stile.</p>
+                    <p>Una birra color ambra, dalla schiuma compatta e persistente. I profumi dei luppoli inglesi e americani regalano sentori erbacei, speziati e agrumati, a cui rispondono le note più calde dei malti, con sensazioni caramellate e di frutta matura, prima che l'amaro dei luppoli prenda il sopravvento lasciando una secchezza finale tipica dello stile.</p>
                     <div class="price-variants">
                         <span>0,25 l - € 5,00</span>
                         <span>0,40 l - € 7,50</span>
@@ -255,7 +235,7 @@
                     <div class="menu-item-header">
                         <h3>KRONENBOURG 1664 BLANC</h3>
                     </div>
-                    <p>Kronenbourg 1664 Blanc è una birra di frumento leggera, frizzante e rinfrescante caratterizzata da note agrumate e fruttate. Al sorso risulta delicata ed equilibrata, con aromi di pesca bianca, frutta esotica e spezie. Grazie a una miscela meravigliosamente squisita di luppoli pregiati e un pizzico di coriandolo, ha una nota speziata e un sottile gusto amaro, che è bilanciato dall'aroma di pesca bianca.</p>
+                    <p>Kronenbourg 1664 Blanc è una birra di frumento leggera, frizzante e rinfrescante caratterizzata da note agrumate e fruttate. Al sorso risulta delicata ed equilibrata, con aromi di pesca bianca, frutta esotica e spezie. Grazie a una miscela di luppoli pregiati e un pizzico di coriandolo, ha una nota speziata e un sottile gusto amaro.</p>
                     <div class="price-variants">
                         <span>0,30 l - € 4,50</span>
                         <span>0,50 l - € 7,00</span>
@@ -277,7 +257,7 @@
         </div>
 
         <div class="menu-category">
-            <h2>🍹 Cocktail</h2>
+            <h2><i class="fas fa-cocktail" style="font-size: 2.5rem; margin-right: 15px;"></i> Cocktail</h2>
             <div class="menu-grid">
                 
                 <div class="menu-item">
@@ -396,7 +376,7 @@
         </div>
 
         <div class="menu-category">
-            <h2>🥃 Liquori, Distillati e Vini</h2>
+            <h2><i class="fas fa-wine-glass-alt" style="font-size: 2.5rem; margin-right: 15px;"></i> Liquori, Distillati e Vini</h2>
             <div class="menu-grid">
                 
                 <div class="menu-item">
@@ -480,15 +460,14 @@
         </div>
 
         <div class="menu-category">
-            <h2>🥤 Soft Drink</h2>
+            <h2><i class="fas fa-glass-whiskey" style="font-size: 2.5rem; margin-right: 15px;"></i> Soft Drink</h2>
             <div class="menu-grid">
                 
                 <div class="menu-item">
                     <div class="menu-item-header">
-                        <h3>ACQUA</h3>
+                        <h3>ACQUA NATURALE / FRIZZANTE</h3>
                         <span class="price">€ 1,00</span>
                     </div>
-                    <p>naturale, frizzante</p>
                 </div>
 
                 <div class="menu-item">
@@ -531,7 +510,7 @@
         </div>
 
         <div class="menu-category">
-            <h2>🍰 Dessert</h2>
+            <h2><i class="fas fa-ice-cream" style="font-size: 2.5rem; margin-right: 15px;"></i> Dessert</h2>
             <div class="menu-grid">
                 
                 <div class="menu-item">
@@ -573,12 +552,12 @@
 
     <footer>
         <div class="social-links">
-            <a href="#">Facebook</a> | 
-            <a href="#">Instagram</a> | 
-            <a href="#">TikTok</a> | 
-            <a href="https://wa.me/393880584145">WhatsApp</a>
+            <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/393880584145" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-        <p>&copy; 2026 The ROCK Cafe. Tutti i diritti riservati. Stay Rock!</p>
+        <p>&copy; 2026 The ROCK Cafe. Food, Beer, Rock 'n' Roll.</p>
     </footer>
 
 </body>
