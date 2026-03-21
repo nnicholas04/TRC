@@ -2,7 +2,7 @@
    VARIABILI DI STILE - Colori Rock
    ========================================= */
 :root {
-    --primary-color: #f8b400; /* Ambra Birra */
+    --primary-color: #f8b400; /* Giallo Birra */
     --accent-color: #d62828; /* Rosso Rock */
     --bg-dark: #0a0a0a;
     --bg-light: #121212;
@@ -14,372 +14,239 @@
 }
 
 /* =========================================
-   RESET E BASE (Impostati per Mobile)
+   RESET E BASE
    ========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* Toglie il flash blu quando clicchi su mobile */
-}
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { overflow-x: hidden; width: 100%; }
 
-html, body {
-    overflow-x: hidden;
-    width: 100%;
-}
-
-body {
-    font-family: var(--body-font);
-    background-color: var(--bg-dark);
+body { 
+    font-family: var(--body-font); 
+    background-color: var(--bg-dark); 
     background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('images/bg-texture.jpg');
-    background-size: cover;
-    background-attachment: fixed;
-    color: var(--text-main);
-    line-height: 1.6;
+    background-size: cover; 
+    background-attachment: fixed; 
+    color: var(--text-main); 
+    line-height: 1.6; 
     padding-bottom: 70px; /* Spazio in fondo per la barra di navigazione fissa */
 }
 
-h1, h2, h3 {
-    font-family: var(--heading-font);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-a {
-    text-decoration: none;
-    color: var(--text-main);
-    transition: all 0.3s ease-in-out;
-}
+h1, h2, h3 { font-family: var(--heading-font); text-transform: uppercase; letter-spacing: 1px; }
+a { text-decoration: none; color: var(--text-main); transition: all 0.3s ease-in-out; }
 
 /* =========================================
-   HEADER (Solo Logo in alto su Mobile)
+   HEADER
    ========================================= */
 header {
-    background-color: rgba(0, 0, 0, 0.95);
-    padding: 15px;
-    display: flex;
-    justify-content: center; /* Logo centrato su mobile */
-    align-items: center;
-    position: fixed;
-    width: 100%;
-    top: 0;
+    background-color: rgba(0, 0, 0, 0.95); 
+    padding: 15px; 
+    display: flex; 
+    justify-content: center; 
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
     z-index: 1000;
-    border-bottom: 2px solid var(--accent-color);
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8);
+    border-bottom: 2px solid var(--accent-color); 
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8); 
+    height: 75px;
 }
-
-.logo img {
-    height: 45px; /* Leggermente più piccolo su smartphone */
-}
+.logo img { height: 45px; }
 
 /* =========================================
    BOTTOM NAVIGATION BAR (Stile App)
    ========================================= */
 nav {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+    position: fixed; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
     background-color: #000;
-    border-top: 2px solid var(--accent-color);
-    z-index: 1000;
+    border-top: 2px solid var(--accent-color); 
+    z-index: 1001; 
     box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.9);
 }
-
-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 70px;
-}
-
-nav ul li {
-    flex: 1;
-    text-align: center;
-}
-
-nav ul li a {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--heading-font);
-    font-size: 0.8rem;
-    color: var(--text-muted);
-    gap: 5px;
-}
-
-nav ul li a i {
-    font-size: 1.5rem; /* Icone grandi da tappare */
-}
-
-nav ul li a.active, nav ul li a:active {
-    color: var(--accent-color) !important;
-    text-shadow: 0 0 10px var(--accent-color);
-}
+nav ul { list-style: none; display: flex; justify-content: space-around; align-items: center; height: 70px; }
+nav ul li { flex: 1; text-align: center; }
+nav ul li a { display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--heading-font); font-size: 0.8rem; color: var(--text-muted); gap: 5px; transition: 0.3s; }
+nav ul li a i { font-size: 1.5rem; }
+nav ul li a.active, nav ul li a:hover { color: var(--accent-color) !important; text-shadow: 0 0 10px var(--accent-color); }
 
 /* =========================================
-   HERO SECTION (Ottimizzata per schermi piccoli)
+   HERO SECTION
    ========================================= */
 .hero {
-    height: 80vh; /* Meglio di 100vh su mobile a causa delle barre del browser */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 15px;
-    margin-top: 75px;
-    position: relative;
+    height: 55vh; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    padding: 0 15px; 
+    margin-top: 75px; 
+    position: relative; 
     overflow: hidden;
 }
-
 .hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMSIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNuKSIvPjwvc3ZnPg==') repeat;
-    opacity: 0.1;
-    z-index: 1;
+    opacity: 0.1; z-index: 1;
 }
 
 .hero-home {
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('images/hero-home.jpg') center center/cover no-repeat;
+    display: grid; grid-template-rows: 1fr auto 1fr; align-items: center; justify-items: center; width: 100%; padding: 0;
 }
+.hero-text { grid-row: 2; z-index: 2; padding: 0 15px; }
+.hero-action { grid-row: 3; display: flex; align-items: center; justify-content: center; height: 100%; z-index: 2; }
+.hero-menu { background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('images/hero-menu.jpg') center center/cover no-repeat; }
 
-.hero-menu {
-    height: 45vh; /* Più bassa su mobile per far vedere subito il menu */
-    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('images/hero-menu.jpg') center center/cover no-repeat;
-}
-
-.hero h1 {
-    font-size: 3.2rem; /* Perfetto per cellulare */
-    line-height: 1.1;
-    color: #fff;
-    text-shadow: 0 0 15px rgba(214, 40, 40, 0.9);
-    margin-bottom: 10px;
-    z-index: 2;
-}
-
-.motto-rock {
-    font-family: var(--rock-font);
-    font-size: 1.6rem;
-    color: var(--primary-color);
-    text-shadow: 0 0 10px rgba(248, 180, 0, 0.8);
-    margin-bottom: 30px;
-    z-index: 2;
-}
-
-.btn {
-    display: inline-block;
-    background: linear-gradient(45deg, #1f1f1f, #333, #1f1f1f);
-    border: 2px solid #666;
-    color: #fff;
-    padding: 12px 30px;
-    font-family: var(--heading-font);
-    font-size: 1.2rem;
-    border-radius: 8px; /* Più arrotondato stile App */
-    z-index: 2;
-}
+.hero h1 { font-size: 3.2rem; line-height: 1.1; color: #fff; text-shadow: 0 0 15px rgba(214, 40, 40, 0.9); margin-bottom: 10px; z-index: 2; }
+.motto-rock { font-family: var(--rock-font); font-size: 1.6rem; color: var(--primary-color); text-shadow: 0 0 10px rgba(248, 180, 0, 0.8); margin-bottom: 30px; z-index: 2; }
+.btn { display: inline-block; background: linear-gradient(45deg, #1f1f1f, #333, #1f1f1f); border: 2px solid #666; color: #fff; padding: 12px 30px; font-family: var(--heading-font); font-size: 1.2rem; border-radius: 8px; z-index: 2; transition: 0.3s;}
+.btn:hover { border-color: var(--accent-color); box-shadow: 0 0 20px rgba(214, 40, 40, 0.5); transform: translateY(-3px); }
 
 /* =========================================
-   SEZIONE CONTATTI E ORARI (Mobile)
+   SEZIONE CONTATTI E ORARI
    ========================================= */
-.info-section {
-    padding: 50px 15px;
-    background: linear-gradient(rgba(20, 20, 20, 0.9), rgba(20, 20, 20, 0.95)), url('images/bg-texture.jpg');
-    background-size: cover;
-    display: flex;
-    flex-direction: column; /* Impila su mobile */
-    align-items: center;
-    gap: 30px;
-}
-
-.info-box {
-    background-color: #000;
-    padding: 30px 20px;
-    border-radius: 12px;
-    width: 100%;
-    max-width: 400px;
-    text-align: center;
-    border-top: 4px solid var(--primary-color);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.8);
-}
-
-.info-box h2 {
-    color: var(--primary-color);
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-
-.info-box p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
+.info-section { padding: 50px 15px; display: flex; flex-direction: column; align-items: center; gap: 30px; }
+.info-box { background-color: #000; padding: 30px 20px; border-radius: 12px; width: 100%; max-width: 400px; text-align: center; border-top: 4px solid var(--primary-color); box-shadow: 0 5px 20px rgba(0,0,0,0.8); transition: 0.3s; }
+.info-box:hover { transform: translateY(-5px); box-shadow: 0 5px 25px rgba(248, 180, 0, 0.3); }
+.info-box h2 { color: var(--primary-color); margin-bottom: 20px; font-size: 2rem; }
+.info-box p { font-size: 1.1rem; margin-bottom: 15px; }
 
 /* =========================================
-   PAGINA MENU (Mobile a 2 Colonne Compatte)
+   PAGINA MENU
    ========================================= */
-.menu-section {
-    padding: 40px 10px;
-    width: 100%;
-}
+.menu-section { padding: 40px 10px; width: 100%; }
+.menu-category { margin-bottom: 50px; }
+.menu-category h2 { color: var(--accent-color); font-size: 2.2rem; text-shadow: 0 0 10px rgba(214, 40, 40, 0.5); margin-bottom: 25px; text-align: center; }
+.menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.menu-item { background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.98)), url('images/bg-texture.jpg'); padding: 15px 12px; border-radius: 10px; border: 1px solid #333; display: flex; flex-direction: column; transition: 0.3s;}
+.menu-item:hover { border-color: var(--accent-color); transform: translateY(-3px); box-shadow: 0 0 15px rgba(214, 40, 40, 0.4); }
 
-.menu-category {
-    margin-bottom: 50px;
-}
+.menu-item-header { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; margin-bottom: 8px; }
+.menu-item-header h3 { font-size: 1.1rem; line-height: 1.2; color: #fff; }
 
-.menu-category h2 {
-    color: var(--accent-color);
-    font-size: 2.2rem;
-    text-shadow: 0 0 10px rgba(214, 40, 40, 0.5);
-    margin-bottom: 25px;
-    text-align: center; /* Centrato su mobile */
-}
+/* PREZZI BLOCCATI: Non vanno mai a capo */
+.price { color: var(--primary-color); font-size: 1.2rem; font-weight: bold; white-space: nowrap; flex-shrink: 0; }
 
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 Colonne fisse */
-    gap: 10px; /* Gap ristretto */
-}
-
-.menu-item {
-    background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.98)), url('images/bg-texture.jpg');
-    padding: 15px 12px;
-    border-radius: 10px;
-    border: 1px solid #333;
-    display: flex;
-    flex-direction: column;
-}
-
-.menu-item-header {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-    margin-bottom: 8px;
-}
-
-.menu-item-header h3 {
-    font-size: 1.1rem;
-    line-height: 1.2;
-    color: #fff;
-}
-
-.price {
-    color: var(--primary-color);
-    font-size: 1.2rem;
-    font-weight: bold;
-}
-
-.menu-item p {
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    line-height: 1.4;
-    margin-bottom: 10px;
-    flex-grow: 1; /* Spinge i prezzi in fondo se le descrizioni hanno lunghezze diverse */
-}
-
-.price-variants {
-    margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    font-size: 0.9rem;
-}
-
-.price-variants span {
-    background-color: rgba(248, 180, 0, 0.1);
-    padding: 3px 5px;
-    border-radius: 4px;
-    border: 1px solid rgba(248, 180, 0, 0.2);
-    text-align: center;
-}
+.menu-item p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; margin-bottom: 10px; flex-grow: 1; }
+.price-variants { margin-top: auto; display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; }
+.price-variants span { background-color: rgba(248, 180, 0, 0.1); padding: 3px 5px; border-radius: 4px; border: 1px solid rgba(248, 180, 0, 0.2); text-align: center; color: var(--primary-color); }
 
 /* =========================================
    FOOTER
    ========================================= */
-footer {
-    background-color: #000;
-    text-align: center;
-    padding: 40px 15px 90px 15px; /* Spazio extra in fondo per non farsi coprire dalla barra */
-    border-top: 3px solid #333;
-}
+footer { background-color: #000; text-align: center; padding: 40px 15px 90px 15px; border-top: 3px solid #333; }
+.social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 25px; font-size: 2.2rem; }
+.social-links a { color: var(--primary-color); transition: 0.3s; display: inline-block; }
+.social-links a:hover { text-shadow: 0 0 15px var(--primary-color); transform: scale(1.1); }
+footer p { font-size: 0.9rem; color: #666; }
 
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    margin-bottom: 25px;
-    font-size: 2.2rem;
-}
-
-.social-links a {
+/* =========================================
+   PULSANTI E LINK CONTATTI
+   ========================================= */
+.map-btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: rgba(248, 180, 0, 0.1); /* Sfondo giallo trasparente */
+    border: 1px solid var(--primary-color); /* Bordo giallo */
     color: var(--primary-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
 
-footer p {
-    font-size: 0.9rem;
-    color: #666;
+.map-btn:hover {
+    background-color: var(--primary-color);
+    color: #000; /* Testo nero al passaggio del mouse */
+    box-shadow: 0 0 15px rgba(248, 180, 0, 0.6); /* Luce neon */
+    transform: translateY(-3px);
+}
+
+.contact-link {
+    color: var(--primary-color);
+    text-decoration: underline;
+    text-decoration-color: rgba(248, 180, 0, 0.4);
+    text-underline-offset: 4px;
+    transition: 0.3s;
+}
+
+.contact-link:hover {
+    color: #fff;
+    text-decoration-color: #fff;
 }
 
 /* =========================================
    MEDIA QUERY PER DESKTOP E TABLET 
-   (Si adatta automaticamente se si apre dal PC)
    ========================================= */
 @media(min-width: 768px) {
-    body { padding-bottom: 0; }
+    body { padding-bottom: 0; } /* Rimuove lo spazio della barra mobile */
     
-    header {
-        justify-content: space-between;
-        padding: 15px 50px;
-    }
-    
-    .logo img { height: 60px; }
+    header { justify-content: flex-start; padding: 0 50px; }
+    .logo img { height: 55px; }
 
-    /* Riporta la navigazione in alto a destra su PC */
-    nav {
-        position: static;
-        background-color: transparent;
-        border: none;
+    /* FIX NAVIGAZIONE PC: Fissa a destra */
+    nav { 
+        position: fixed; 
+        top: 0; 
+        right: 50px; 
+        bottom: auto;
+        left: auto;
+        background-color: transparent; 
+        border: none; 
         box-shadow: none;
-        width: auto;
+        width: auto; 
+        height: 75px; /* Stessa altezza dell'header nero */
+        z-index: 1005; 
     }
-
-    nav ul {
-        height: auto;
-        justify-content: flex-end;
-        gap: 30px;
-    }
-
+    nav ul { height: 100%; justify-content: flex-end; align-items: center; gap: 40px; }
     nav ul li { flex: none; }
+    nav ul li a { flex-direction: row; font-size: 1.2rem; text-transform: uppercase; }
+    nav ul li a i { display: none; } /* Nasconde le icone */
+    nav ul li a:hover { transform: translateY(-2px); }
 
-    nav ul li a {
-        flex-direction: row;
-        font-size: 1.2rem;
-    }
-    
-    nav ul li a i { display: none; /* Nasconde le icone su PC */ }
-
-    .hero { height: 100vh; }
-    .hero-menu { height: 60vh; }
+    .hero { height: 75vh; }
     .hero h1 { font-size: 6rem; }
     .motto-rock { font-size: 2.2rem; }
 
-    .info-section { flex-direction: row; padding: 100px 20px; }
-    .info-box { padding: 50px; }
+    /* FIX CONTATTI CENTRATI SU PC */
+    .info-section { 
+        flex-direction: row; 
+        justify-content: center; 
+        padding: 100px 20px; 
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto; /* Centra il blocco nello schermo */
+        gap: 50px;
+    }
+    .info-box { max-width: 450px; padding: 50px; }
 
-    .menu-section { padding: 100px 20px; }
+    /* LAYOUT MENU PC */
+    .menu-section { 
+        padding: 100px 20px; 
+        width: 100%;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
     .menu-category h2 { text-align: left; font-size: 3.5rem; }
     .menu-grid { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
     
-    .menu-item-header { flex-direction: row; align-items: flex-start; }
-    .menu-item-header h3 { font-size: 1.8rem; }
+    /* FIX PREZZI SU PC: Allineati e mai a capo */
+    .menu-item-header { 
+        flex-direction: row; 
+        justify-content: space-between; 
+        align-items: center; 
+        gap: 15px; 
+    }
+    .menu-item-header h3 { 
+        font-size: 1.5rem; 
+        margin: 0;
+    }
     .price { font-size: 1.5rem; }
+    
     .menu-item p { font-size: 1rem; }
     .price-variants { flex-direction: row; }
     
