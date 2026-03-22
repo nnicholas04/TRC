@@ -115,7 +115,7 @@ nav ul li a.active, nav ul li a:hover { color: var(--accent-color) !important; t
 .info-box p { font-size: 1.1rem; margin-bottom: 15px; }
 
 /* =========================================
-   INDICE RAPIDO MENU (SCROLL ORIZZONTALE)
+   INDICE RAPIDO MENU (BOTTONI A VISTA / MULTIRIGA)
    ========================================= */
 .menu-index-container {
     background-color: #050505;
@@ -124,25 +124,22 @@ nav ul li a.active, nav ul li a:hover { color: var(--accent-color) !important; t
 }
 .menu-index {
     display: flex;
-    overflow-x: auto;
-    gap: 12px;
-    scrollbar-width: none;
-}
-.menu-index::-webkit-scrollbar { 
-    display: none;
+    flex-wrap: wrap; /* 🔥 Questa è la magia: li manda a capo invece di nasconderli! */
+    justify-content: center; /* Centra i bottoni per un look più ordinato */
+    gap: 10px; /* Spazio tra i bottoni */
 }
 .index-btn {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     background-color: #1a1a1a;
     color: #fff;
-    padding: 10px 20px;
+    padding: 8px 16px; /* Resi leggermente più compatti per farne entrare di più */
     border-radius: 25px;
     font-family: var(--heading-font);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     text-transform: uppercase;
-    white-space: nowrap;
+    white-space: nowrap; /* Evita che il testo dentro un singolo bottone si spezzi a metà */
     border: 1px solid #333;
 }
 .index-btn i { color: var(--primary-color); }
@@ -153,7 +150,7 @@ nav ul li a.active, nav ul li a:hover { color: var(--accent-color) !important; t
 }
 .index-btn:hover i, .index-btn:active i { color: #000; }
 
-/* Evita che il titolo della categoria finisca sotto l'header nero quando clicchi */
+/* Distanza dal margine superiore quando si clicca l'indice */
 .menu-category { margin-bottom: 50px; scroll-margin-top: 20px; }
 
 /* =========================================
