@@ -18,6 +18,7 @@
    ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body { overflow-x: hidden; width: 100%; }
+html { scroll-behavior: smooth; } /* Scorrimento dolce riattivato */
 
 body { 
     font-family: var(--body-font); 
@@ -114,10 +115,51 @@ nav ul li a.active, nav ul li a:hover { color: var(--accent-color) !important; t
 .info-box p { font-size: 1.1rem; margin-bottom: 15px; }
 
 /* =========================================
+   INDICE RAPIDO MENU (SCROLL ORIZZONTALE)
+   ========================================= */
+.menu-index-container {
+    background-color: #050505;
+    padding: 20px 15px;
+    border-bottom: 2px solid var(--accent-color);
+}
+.menu-index {
+    display: flex;
+    overflow-x: auto;
+    gap: 12px;
+    scrollbar-width: none;
+}
+.menu-index::-webkit-scrollbar { 
+    display: none;
+}
+.index-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: #1a1a1a;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-family: var(--heading-font);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border: 1px solid #333;
+}
+.index-btn i { color: var(--primary-color); }
+.index-btn:hover, .index-btn:active { 
+    background-color: var(--primary-color); 
+    color: #000; 
+    border-color: var(--primary-color); 
+}
+.index-btn:hover i, .index-btn:active i { color: #000; }
+
+/* Evita che il titolo della categoria finisca sotto l'header nero quando clicchi */
+.menu-category { margin-bottom: 50px; scroll-margin-top: 20px; }
+
+/* =========================================
    PAGINA MENU
    ========================================= */
 .menu-section { padding: 40px 10px; width: 100%; }
-.menu-category { margin-bottom: 50px; }
 .menu-category h2 { color: var(--accent-color); font-size: 2.2rem; text-shadow: 0 0 10px rgba(214, 40, 40, 0.5); margin-bottom: 25px; text-align: center; }
 .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 .menu-item { background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.98)), url('images/bg-texture.jpg'); padding: 15px 12px; border-radius: 10px; border: 1px solid #333; display: flex; flex-direction: column; transition: 0.3s;}
@@ -138,7 +180,6 @@ nav ul li a.active, nav ul li a:hover { color: var(--accent-color) !important; t
    ========================================= */
 footer { background-color: #000; text-align: center; padding: 40px 15px 90px 15px; border-top: 3px solid #333; }
 
-/* Nuovo stile per il titolo dei social */
 .social-title {
     color: var(--primary-color);
     font-family: var(--heading-font);
@@ -160,8 +201,8 @@ footer p { font-size: 0.9rem; color: #666; }
     display: inline-block;
     margin-top: 15px;
     padding: 10px 20px;
-    background-color: rgba(248, 180, 0, 0.1); /* Sfondo giallo trasparente */
-    border: 1px solid var(--primary-color); /* Bordo giallo */
+    background-color: rgba(248, 180, 0, 0.1); 
+    border: 1px solid var(--primary-color); 
     color: var(--primary-color);
     border-radius: 8px;
     font-size: 1rem;
@@ -172,8 +213,8 @@ footer p { font-size: 0.9rem; color: #666; }
 
 .map-btn:hover {
     background-color: var(--primary-color);
-    color: #000; /* Testo nero al passaggio del mouse */
-    box-shadow: 0 0 15px rgba(248, 180, 0, 0.6); /* Luce neon */
+    color: #000; 
+    box-shadow: 0 0 15px rgba(248, 180, 0, 0.6); 
     transform: translateY(-3px);
 }
 
@@ -191,7 +232,7 @@ footer p { font-size: 0.9rem; color: #666; }
 }
 
 /* =========================================
-   SEZIONE FEATURES (HOME) - AGGIORNATA
+   SEZIONE FEATURES (HOME)
    ========================================= */
 .features-grid { 
     display: grid; 
@@ -199,40 +240,33 @@ footer p { font-size: 0.9rem; color: #666; }
     gap: 30px; 
 }
 .feature-card { 
-    background-color: transparent; /* 🔥 Sfondo trasparente */
+    background-color: transparent; 
     padding: 20px; 
-    border-radius: 0; /* 🔥 Tolto arrotondamento inutile senza box */
-    border: none; /* 🔥 Tolto bordo */
-    box-shadow: none; /* 🔥 Tolta ombra */
+    border-radius: 0; 
+    border: none; 
+    box-shadow: none; 
     transition: 0.3s; 
 }
-/* Al passaggio del mouse si muovono solo, senza mostrare bordi */
 .feature-card:hover { 
     transform: translateY(-8px); 
 }
 .feature-icon { 
     font-size: 3.5rem; 
     margin-bottom: 20px; 
-    /* Ho mantenuto un leggero bagliore per farle risaltare sul nero */
     filter: drop-shadow(0 0 8px rgba(255,255,255,0.3)); 
 }
 .feature-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; }
 .feature-card p { color: var(--text-muted); font-size: 1rem; }
 
-@media(min-width: 768px) {
-    .features-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
-}
-
 /* =========================================
    MEDIA QUERY PER DESKTOP E TABLET 
    ========================================= */
 @media(min-width: 768px) {
-    body { padding-bottom: 0; } /* Rimuove lo spazio della barra mobile */
+    body { padding-bottom: 0; } 
     
     header { justify-content: flex-start; padding: 0 50px; }
     .logo img { height: 55px; }
 
-    /* FIX NAVIGAZIONE PC: Fissa a destra */
     nav { 
         position: fixed; 
         top: 0; 
@@ -243,33 +277,33 @@ footer p { font-size: 0.9rem; color: #666; }
         border: none; 
         box-shadow: none;
         width: auto; 
-        height: 75px; /* Stessa altezza dell'header nero */
+        height: 75px; 
         z-index: 1005; 
     }
     nav ul { height: 100%; justify-content: flex-end; align-items: center; gap: 40px; }
     nav ul li { flex: none; }
     nav ul li a { flex-direction: row; font-size: 1.2rem; text-transform: uppercase; }
-    nav ul li a i { display: none; } /* Nasconde le icone */
+    nav ul li a i { display: none; } 
     nav ul li a:hover { transform: translateY(-2px); }
 
     .hero { height: 75vh; }
     .hero h1 { font-size: 6rem; }
     .motto-rock { font-size: 2.2rem; }
 
-    /* FIX CONTATTI CENTRATI SU PC */
     .info-section { 
         display: flex;
         flex-direction: row; 
-        justify-content: center; /* Forza l'allineamento al centro perfetto */
-        align-items: stretch; /* Li mantiene della stessa altezza */
+        justify-content: center; 
+        align-items: stretch; 
         width: 100%;
-        max-width: 100%; /* Sfrutta tutta la larghezza del monitor */
+        max-width: 100%; 
         margin: 0 auto; 
-        gap: 80px; /* Ho allargato leggermente lo spazio tra i due box per un look più moderno su PC */
+        gap: 80px; 
     }
     .info-box { max-width: 450px; padding: 50px; }
 
-    /* LAYOUT MENU PC */
+    .features-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+
     .menu-section { 
         padding: 100px 20px; 
         width: 100%;
@@ -279,7 +313,6 @@ footer p { font-size: 0.9rem; color: #666; }
     .menu-category h2 { text-align: left; font-size: 3.5rem; }
     .menu-grid { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
     
-    /* FIX PREZZI SU PC: Allineati e mai a capo */
     .menu-item-header { 
         flex-direction: row; 
         justify-content: space-between; 
@@ -303,11 +336,10 @@ footer p { font-size: 0.9rem; color: #666; }
    ========================================= */
 .reveal {
     opacity: 0;
-    transform: translateY(40px); /* Parte spostato di 40px verso il basso */
-    transition: all 0.6s ease-out; /* Durata dell'animazione (0.6 secondi) */
+    transform: translateY(40px); 
+    transition: all 0.6s ease-out; 
 }
-
 .reveal.active {
     opacity: 1;
-    transform: translateY(0); /* Torna alla sua posizione originale */
+    transform: translateY(0); 
 }

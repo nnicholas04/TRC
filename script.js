@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
             const header = document.querySelector('header');
             let moveUp = 0; 
             
-            if (window.scrollY > 400) {
-                moveUp = (window.scrollY - 400) / 5; 
+            if (window.scrollY > 300) {
+                moveUp = (window.scrollY - 300) / 4.4; 
                 if (moveUp > 80) {
                     moveUp = 80;
                 }
