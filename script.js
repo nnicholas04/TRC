@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // =========================================
     // EFFETTO SLIDE UP HEADER (SOLO NEL MENU)
     // =========================================
-    // Usiamo un "if" per attivare lo scorrimento solo se siamo nel Menu
     if (currentPath.includes("menu.html")) {
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
@@ -45,17 +44,19 @@ document.addEventListener("DOMContentLoaded", function() {
     // =========================================
     // EFFETTO COMPARSA ELEMENTI (SCROLL REVEAL)
     // =========================================
-    const elementiDaAnimare = document.querySelectorAll('.info-box, .menu-item');
+    
+    // 🔥 LA CORREZIONE È QUI: Ora cerca tutto ciò che ha la classe '.reveal' 
+    const elementiDaAnimare = document.querySelectorAll('.info-box, .menu-item, .reveal');
     
     elementiDaAnimare.forEach(el => {
-        el.classList.add('reveal');
+        el.classList.add('reveal'); // Si assicura che tutti abbiano la classe base
     });
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Ferma l'animazione una volta apparsi
+                entry.target.classList.add('active'); // Li fa apparire!
+                observer.unobserve(entry.target); 
             }
         });
     }, {

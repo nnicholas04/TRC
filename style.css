@@ -191,6 +191,39 @@ footer p { font-size: 0.9rem; color: #666; }
 }
 
 /* =========================================
+   SEZIONE FEATURES (HOME) - AGGIORNATA
+   ========================================= */
+.features-grid { 
+    display: grid; 
+    grid-template-columns: repeat(1, 1fr); 
+    gap: 30px; 
+}
+.feature-card { 
+    background-color: transparent; /* 🔥 Sfondo trasparente */
+    padding: 20px; 
+    border-radius: 0; /* 🔥 Tolto arrotondamento inutile senza box */
+    border: none; /* 🔥 Tolto bordo */
+    box-shadow: none; /* 🔥 Tolta ombra */
+    transition: 0.3s; 
+}
+/* Al passaggio del mouse si muovono solo, senza mostrare bordi */
+.feature-card:hover { 
+    transform: translateY(-8px); 
+}
+.feature-icon { 
+    font-size: 3.5rem; 
+    margin-bottom: 20px; 
+    /* Ho mantenuto un leggero bagliore per farle risaltare sul nero */
+    filter: drop-shadow(0 0 8px rgba(255,255,255,0.3)); 
+}
+.feature-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; }
+.feature-card p { color: var(--text-muted); font-size: 1rem; }
+
+@media(min-width: 768px) {
+    .features-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+}
+
+/* =========================================
    MEDIA QUERY PER DESKTOP E TABLET 
    ========================================= */
 @media(min-width: 768px) {
@@ -225,13 +258,14 @@ footer p { font-size: 0.9rem; color: #666; }
 
     /* FIX CONTATTI CENTRATI SU PC */
     .info-section { 
+        display: flex;
         flex-direction: row; 
-        justify-content: center; 
-        padding: 100px 20px; 
+        justify-content: center; /* Forza l'allineamento al centro perfetto */
+        align-items: stretch; /* Li mantiene della stessa altezza */
         width: 100%;
-        max-width: 1200px;
-        margin: 0 auto; /* Centra il blocco nello schermo */
-        gap: 50px;
+        max-width: 100%; /* Sfrutta tutta la larghezza del monitor */
+        margin: 0 auto; 
+        gap: 80px; /* Ho allargato leggermente lo spazio tra i due box per un look più moderno su PC */
     }
     .info-box { max-width: 450px; padding: 50px; }
 
