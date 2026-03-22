@@ -263,3 +263,17 @@ footer p { font-size: 0.9rem; color: #666; }
     
     footer { padding: 50px 20px; }
 }
+
+/* =========================================
+   EFFETTO COMPARSA ALLO SCORRIMENTO (REVEAL)
+   ========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px); /* Parte spostato di 40px verso il basso */
+    transition: all 0.6s ease-out; /* Durata dell'animazione (0.6 secondi) */
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0); /* Torna alla sua posizione originale */
+}

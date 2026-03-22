@@ -1,45 +1,68 @@
 document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelectorAll('nav ul li a');
+    
+    // Salviamo subito il percorso della pagina in cui ci troviamo
+    const currentPath = window.location.pathname;
 
-    // Funzione per aggiornare lo stato attivo
+    // Funzione intelligente per capire su che pagina ci troviamo
     function updateActiveLink() {
-        const currentHash = window.location.hash;
-        const currentPath = window.location.pathname;
-
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
             link.classList.remove('active');
 
-            // Caso 1: Siamo sui contatti (ancora #contatti)
-            if (currentHash === "#contatti" && href.includes("#contatti")) {
+            if (currentPath.includes("menu.html") && href.includes("menu.html")) {
                 link.classList.add('active');
-            } 
-            // Caso 2: Siamo nel menù (pagina menu.html)
-            else if (currentPath.includes("menu.html") && href.includes("menu.html")) {
+            } else if (currentPath.includes("contatti.html") && href.includes("contatti.html")) {
                 link.classList.add('active');
-            }
-            // Caso 3: Siamo in Home (e non sui contatti)
-            else if ((currentPath.endsWith("index.html") || currentPath === "/" || currentPath.endsWith("trc/")) 
-                     && href === "index.html" && currentHash !== "#contatti") {
+            } else if ((currentPath.endsWith("index.html") || currentPath === "/" || currentPath.endsWith("trc/")) && href === "index.html") {
                 link.classList.add('active');
             }
         });
     }
+    
+    updateActiveLink();
 
-    // Gestione del click per un feedback istantaneo
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Se è un link interno alla stessa pagina, cambiamo subito classe
-            if (this.getAttribute('href').startsWith('#') || this.getAttribute('href').includes(window.location.pathname)) {
-                navLinks.forEach(a => a.classList.remove('active'));
-                this.classList.add('active');
+    // =========================================
+    // EFFETTO SLIDE UP HEADER (SOLO NEL MENU)
+    // =========================================
+    // Usiamo un "if" per attivare lo scorrimento solo se siamo nel Menu
+    if (currentPath.includes("menu.html")) {
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            let moveUp = 0; 
+            
+            if (window.scrollY > 400) {
+                moveUp = (window.scrollY - 400) / 5; 
+                if (moveUp > 80) {
+                    moveUp = 80;
+                }
             }
+            
+            header.style.transform = `translateY(-${moveUp}px)`;
         });
+    }
+
+    // =========================================
+    // EFFETTO COMPARSA ELEMENTI (SCROLL REVEAL)
+    // =========================================
+    const elementiDaAnimare = document.querySelectorAll('.info-box, .menu-item');
+    
+    elementiDaAnimare.forEach(el => {
+        el.classList.add('reveal');
     });
 
-    // Ascolta i cambiamenti dell'URL (quando si clicca "Contatti" da un'altra pagina)
-    window.addEventListener('hashchange', updateActiveLink);
-    
-    // Esegui al caricamento iniziale
-    updateActiveLink();
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Ferma l'animazione una volta apparsi
+            }
+        });
+    }, {
+        threshold: 0.1 
+    });
+
+    elementiDaAnimare.forEach(el => {
+        observer.observe(el);
+    });
 });
