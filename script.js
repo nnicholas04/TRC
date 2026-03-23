@@ -23,6 +23,28 @@ document.addEventListener("DOMContentLoaded", function() {
     updateActiveLink();
 
     // =========================================
+    // PULSANTE BACK TO TOP
+    // =========================================
+    const backToTopBtn = document.createElement('a');
+    backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
+    backToTopBtn.setAttribute('href', '#');
+    backToTopBtn.classList.add('back-to-top');
+    document.body.appendChild(backToTopBtn);
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 400) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // =========================================
     // EFFETTO SLIDE UP HEADER (SOLO NEL MENU)
     // =========================================
     if (currentPath.includes("menu.html")) {
