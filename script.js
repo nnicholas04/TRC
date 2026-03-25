@@ -102,9 +102,12 @@ document.addEventListener("DOMContentLoaded", function() {
             window.open(whatsappUrl, '_blank');
 
             prenotationForm.reset();
-            // Reset della tendina ora dopo l'invio
+            // Reset della tendina ora dopo l'invio e blocco
             const selectTime = document.getElementById('time');
-            if(selectTime) selectTime.innerHTML = '<option value="" disabled selected>Scegli l\'orario</option>';
+            if(selectTime) {
+                selectTime.innerHTML = '<option value="" disabled selected>-- : --</option>';
+                selectTime.disabled = true;
+            }
         });
     }
 
@@ -138,10 +141,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Funzione per generare gli orari dinamicamente
         function updateTimeOptions() {
-            // Svuota le vecchie opzioni
+            // Selezionata nessuna data? Blocca la tendina e metti i trattini
+            if (!dateInput.value) {
+                selectTime.innerHTML = '<option value="" disabled selected>-- : --</option>';
+                selectTime.disabled = true;
+                return;
+            }
+
+            // Data selezionata! Sblocca la tendina e scrivi "Scegli l'orario"
+            selectTime.disabled = false;
             selectTime.innerHTML = '<option value="" disabled selected>Scegli l\'orario</option>';
-            
-            if (!dateInput.value) return;
 
             const isToday = dateInput.value === todayString;
             const now = new Date();

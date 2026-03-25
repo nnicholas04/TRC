@@ -225,7 +225,7 @@ footer p { font-size: 0.9rem; color: #666; }
 @media (hover: hover) { .back-to-top:hover { background-color: var(--primary-color); color: #000; transform: translateY(-5px); } }
 
 /* =========================================
-   FORM PRENOTAZIONE (WHATSAPP) E FIX IPHONE
+   FORM PRENOTAZIONE E FIX TEXT PLACEHOLDER
    ========================================= */
 .booking-section { padding: 60px 15px 20px; width: 100%; max-width: 800px; margin: 0 auto; }
 .booking-form { background-color: #0d0d0d; background-image: linear-gradient(rgba(13, 13, 13, 0.95), rgba(13, 13, 13, 0.98)), url('images/bg-texture.jpg'); padding: 40px 30px; border-radius: 12px; border: 1px solid #1a1a1a; border-top: 3px solid var(--primary-color); box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
@@ -241,7 +241,28 @@ footer p { font-size: 0.9rem; color: #666; }
 .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
     outline: none; border-color: var(--primary-color); box-shadow: 0 0 10px rgba(248, 180, 0, 0.2); background-color: #1a1a1a;
 }
-.form-group select option { background-color: #111; color: #fff; }
+
+/* 🔥 GESTIONE COLORI PROVVISORI (PLACEHOLDER E INVALID) */
+.form-group input::placeholder, 
+.form-group textarea::placeholder {
+    color: #a0a0a0;
+    opacity: 1;
+}
+.form-group select:invalid {
+    color: #a0a0a0;
+}
+.form-group select option { 
+    background-color: #111; 
+    color: #fff; 
+}
+
+/* 🔥 STILE PER LA TENDINA BLOCCATA (SPENTA E NON TOCCABILE) */
+.form-group select:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
 .form-group textarea { resize: vertical; min-height: 100px; }
 
 .btn-whatsapp {
