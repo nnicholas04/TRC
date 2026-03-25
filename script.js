@@ -1,4 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // =========================================
+    // 1. GESTIONE LINK ATTIVO NELLA NAVBAR
+    // =========================================
     const navLinks = document.querySelectorAll('nav ul li a');
     const currentPath = window.location.pathname;
 
@@ -19,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
     updateActiveLink();
 
     // =========================================
-    // PULSANTE BACK TO TOP
+    // 2. PULSANTE "TORNA SU"
     // =========================================
     const backToTopBtn = document.createElement('a');
     backToTopBtn.innerHTML = '<i class="fas fa-arrow-up"></i>';
@@ -33,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================================
-    // EFFETTI SCROLL OTTIMIZZATI
+    // 3. EFFETTI SCROLL OTTIMIZZATI (Zero Lag)
     // =========================================
     let isScrolling = false;
     const header = document.querySelector('header');
@@ -63,14 +66,13 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================================
-    // FORM PRENOTAZIONE (INVIO WHATSAPP)
+    // 4. FORM PRENOTAZIONE (INVIO WHATSAPP)
     // =========================================
     const prenotationForm = document.getElementById('prenotationForm');
     if (prenotationForm) {
         prenotationForm.addEventListener('submit', function(e) {
-            e.preventDefault(); // Impedisce il caricamento a vuoto della pagina
+            e.preventDefault(); 
 
-            // Preleviamo i valori inseriti dall'utente
             const name = document.getElementById('name').value;
             const phone = document.getElementById('phone').value;
             const date = document.getElementById('date').value;
@@ -78,11 +80,10 @@ document.addEventListener("DOMContentLoaded", function() {
             const guests = document.getElementById('guests').value;
             const message = document.getElementById('message').value;
 
-            // Formattiamo la data da YYYY-MM-DD a DD/MM/YYYY (Formato Italiano)
+            // Formatta la data a DD/MM/YYYY
             const dateParts = date.split('-');
             const formattedDate = `${dateParts[2]}/${dateParts[1]}/${dateParts[0]}`;
 
-            // Costruiamo il testo del messaggio pezzo per pezzo
             let whatsappMessage = "Ciao! 🤘 Vorrei prenotare un tavolo al The ROCK Cafe\n\n";
             whatsappMessage += "📝 *Dettagli Prenotazione*\n";
             whatsappMessage += "👤 Nome: " + name + "\n";
@@ -97,19 +98,89 @@ document.addEventListener("DOMContentLoaded", function() {
             
             whatsappMessage += "\nGrazie! 🍺🎸";
 
-            // Creiamo il link magico e lo codifichiamo per evitare bug
             const whatsappUrl = "https://wa.me/393880584145?text=" + encodeURIComponent(whatsappMessage);
-            
-            // Apriamo WhatsApp in una nuova finestra/app
             window.open(whatsappUrl, '_blank');
 
-            // Puliamo i campi del modulo per la prossima volta
             prenotationForm.reset();
+            // Reset della tendina ora dopo l'invio
+            const selectTime = document.getElementById('time');
+            if(selectTime) selectTime.innerHTML = '<option value="" disabled selected>Scegli l\'orario</option>';
         });
     }
 
     // =========================================
-    // SCROLL REVEAL (INTERSECTION OBSERVER)
+    // 5. CONTROLLO DATA E ORA PRENOTAZIONE (Avanzato a Tendina)
+    // =========================================
+    const dateInput = document.getElementById('date');
+    const selectTime = document.getElementById('time');
+
+    if (dateInput && selectTime) {
+        // La lista esatta dei tuoi orari a scatti di 15 minuti!
+        const timeSlots = [
+            "18:00", "18:15", "18:30", "18:45",
+            "19:00", "19:15", "19:30", "19:45",
+            "20:00", "20:15", "20:30", "20:45",
+            "21:00", "21:15", "21:30", "21:45",
+            "22:00", "22:15", "22:30", "22:45",
+            "23:00", "23:15", "23:30", "23:45",
+            "00:00", "00:15", "00:30", "00:45",
+            "01:00", "01:15", "01:30", "01:45", "02:00"
+        ];
+
+        // Imposta la data minima a "oggi" sul calendario
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const todayString = `${yyyy}-${mm}-${dd}`;
+        
+        dateInput.setAttribute('min', todayString);
+
+        // Funzione per generare gli orari dinamicamente
+        function updateTimeOptions() {
+            // Svuota le vecchie opzioni
+            selectTime.innerHTML = '<option value="" disabled selected>Scegli l\'orario</option>';
+            
+            if (!dateInput.value) return;
+
+            const isToday = dateInput.value === todayString;
+            const now = new Date();
+            
+            // Calcoliamo i minuti attuali (spostando la notte in avanti)
+            let currentH = now.getHours();
+            if (currentH >= 0 && currentH <= 5) currentH += 24; 
+            const currentTotalMins = (currentH * 60) + now.getMinutes();
+
+            // Riempiamo la tendina
+            timeSlots.forEach(time => {
+                let [h, m] = time.split(':').map(Number);
+                if (h >= 0 && h <= 5) h += 24; // Le 01:00 diventano "25:00"
+                const slotTotalMins = (h * 60) + m;
+
+                // Se la prenotazione è per oggi, nascondi gli orari passati
+                if (isToday && slotTotalMins <= currentTotalMins) {
+                    return; 
+                }
+
+                // Altrimenti, crea l'opzione
+                const option = document.createElement('option');
+                option.value = time;
+                option.textContent = time;
+                selectTime.appendChild(option);
+            });
+
+            // Se è oggi ed è troppo tardi per prenotare
+            if (selectTime.options.length === 1) {
+                selectTime.innerHTML = '<option value="" disabled selected>Nessun tavolo disponibile per stasera</option>';
+            }
+        }
+
+        // Ricalcola gli orari ogni volta che cambia la data
+        dateInput.addEventListener('change', updateTimeOptions);
+    }
+    
+    // =========================================
+    // 6. SCROLL REVEAL (INTERSECTION OBSERVER)
     // =========================================
     const elementiDaAnimare = document.querySelectorAll('.info-box, .menu-item, .reveal');
     elementiDaAnimare.forEach(el => el.classList.add('reveal'));
