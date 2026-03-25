@@ -225,7 +225,7 @@ footer p { font-size: 0.9rem; color: #666; }
 @media (hover: hover) { .back-to-top:hover { background-color: var(--primary-color); color: #000; transform: translateY(-5px); } }
 
 /* =========================================
-   FORM PRENOTAZIONE (WHATSAPP)
+   FORM PRENOTAZIONE (WHATSAPP) E FIX IPHONE
    ========================================= */
 .booking-section { padding: 60px 15px 20px; width: 100%; max-width: 800px; margin: 0 auto; }
 .booking-form { background-color: #0d0d0d; background-image: linear-gradient(rgba(13, 13, 13, 0.95), rgba(13, 13, 13, 0.98)), url('images/bg-texture.jpg'); padding: 40px 30px; border-radius: 12px; border: 1px solid #1a1a1a; border-top: 3px solid var(--primary-color); box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
@@ -235,7 +235,6 @@ footer p { font-size: 0.9rem; color: #666; }
 .form-group { flex: 1; min-width: 200px; display: flex; flex-direction: column; gap: 8px; }
 .form-group label { color: #ddd; font-size: 0.9rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
 
-/* 🔥 Aggiunto '.form-group select' per stilizzare perfettamente la tendina */
 .form-group input, .form-group textarea, .form-group select {
     width: 100%; padding: 12px 15px; background-color: #111; border: 1px solid #333; color: #fff; border-radius: 8px; font-family: var(--body-font); font-size: 1rem; transition: var(--smooth-transition); appearance: none; -webkit-appearance: none;
 }
@@ -249,6 +248,21 @@ footer p { font-size: 0.9rem; color: #666; }
     width: 100%; background-color: #25D366; color: #fff; border: none; padding: 15px; font-size: 1.2rem; font-family: var(--heading-font); text-transform: uppercase; border-radius: 8px; cursor: pointer; transition: var(--smooth-transition); display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 25px; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
 }
 @media (hover: hover) { .btn-whatsapp:hover { background-color: #1ebe57; transform: translateY(-3px); box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5); } }
+
+/* 🔥 FIX CAMPO DATA PER IPHONE / SAFARI */
+input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1);
+    cursor: pointer;
+}
+input[type="date"]::-webkit-datetime-edit-text,
+input[type="date"]::-webkit-datetime-edit-month-field,
+input[type="date"]::-webkit-datetime-edit-day-field,
+input[type="date"]::-webkit-datetime-edit-year-field {
+    color: #fff;
+}
+input[type="date"]:invalid::-webkit-datetime-edit {
+    color: #a0a0a0;
+}
 
 /* =========================================
    MEDIA QUERY PER DESKTOP E TABLET 

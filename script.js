@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // =========================================
-    // 5. CONTROLLO DATA E ORA PRENOTAZIONE (Avanzato a Tendina)
+    // 5. CONTROLLO DATA E ORA PRENOTAZIONE 
     // =========================================
     const dateInput = document.getElementById('date');
     const selectTime = document.getElementById('time');
@@ -175,8 +175,17 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
 
-        // Ricalcola gli orari ogni volta che cambia la data
-        dateInput.addEventListener('change', updateTimeOptions);
+        // Ricalcola gli orari ogni volta che cambia la data + FIX APPLE IPHONE
+        dateInput.addEventListener('change', function() {
+            // Selezionata data precedente a oggi? L'iPhone viene bloccato!
+            if (this.value && this.value < todayString) {
+                alert("Non puoi prenotare per un giorno passato! La data è stata reimpostata a oggi.");
+                this.value = todayString; // Forza il calendario a tornare su "oggi"
+            }
+            
+            // Dopodiché, aggiorna la tendina degli orari come sempre
+            updateTimeOptions();
+        });
     }
     
     // =========================================
