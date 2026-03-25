@@ -33,33 +33,19 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 
     // =========================================
-    // EFFETTI SCROLL OTTIMIZZATI (Zero Lag)
+    // EFFETTI SCROLL OTTIMIZZATI
     // =========================================
     let isScrolling = false;
-    const header = document.querySelector('header');
-    const isMenuPage = currentPath.includes("menu.html");
 
     window.addEventListener('scroll', () => {
         if (!isScrolling) {
             window.requestAnimationFrame(() => {
-                
                 // Bottone Torna Su
                 if (window.scrollY > 400) {
                     backToTopBtn.classList.add('show');
                 } else {
                     backToTopBtn.classList.remove('show');
                 }
-
-                // Header a scomparsa nel Menu
-                if (isMenuPage && header) {
-                    let moveUp = 0; 
-                    if (window.scrollY > 350) {
-                        moveUp = (window.scrollY - 350) / 5; 
-                        if (moveUp > 80) moveUp = 80;
-                    }
-                    header.style.transform = `translateY(-${moveUp}px)`;
-                }
-
                 isScrolling = false;
             });
             isScrolling = true;
@@ -81,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }, {
         threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px" // Fa scattare l'animazione un attimo prima per maggiore fluidità
+        rootMargin: "0px 0px -50px 0px"
     });
 
     elementiDaAnimare.forEach(el => observer.observe(el));
