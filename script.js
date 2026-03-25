@@ -1,10 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const navLinks = document.querySelectorAll('nav ul li a');
-    
-    // Salviamo subito il percorso della pagina in cui ci troviamo
     const currentPath = window.location.pathname;
 
-    // Funzione intelligente per capire su che pagina ci troviamo
     function updateActiveLink() {
         navLinks.forEach(link => {
             const href = link.getAttribute('href');
@@ -19,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
-    
     updateActiveLink();
 
     // =========================================
@@ -31,61 +27,62 @@ document.addEventListener("DOMContentLoaded", function() {
     backToTopBtn.classList.add('back-to-top');
     document.body.appendChild(backToTopBtn);
 
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 400) {
-            backToTopBtn.classList.add('show');
-        } else {
-            backToTopBtn.classList.remove('show');
-        }
-    });
-
     backToTopBtn.addEventListener('click', (e) => {
         e.preventDefault();
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
     // =========================================
-    // EFFETTO SLIDE UP HEADER (SOLO NEL MENU)
+    // EFFETTI SCROLL OTTIMIZZATI (Zero Lag)
     // =========================================
-    if (currentPath.includes("menu.html")) {
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            let moveUp = 0; 
-            
-            if (window.scrollY > 350) {
-                moveUp = (window.scrollY - 350) / 5; 
-                if (moveUp > 80) {
-                    moveUp = 80;
+    let isScrolling = false;
+    const header = document.querySelector('header');
+    const isMenuPage = currentPath.includes("menu.html");
+
+    window.addEventListener('scroll', () => {
+        if (!isScrolling) {
+            window.requestAnimationFrame(() => {
+                
+                // Bottone Torna Su
+                if (window.scrollY > 400) {
+                    backToTopBtn.classList.add('show');
+                } else {
+                    backToTopBtn.classList.remove('show');
                 }
-            }
-            
-            header.style.transform = `translateY(-${moveUp}px)`;
-        });
-    }
+
+                // Header a scomparsa nel Menu
+                if (isMenuPage && header) {
+                    let moveUp = 0; 
+                    if (window.scrollY > 350) {
+                        moveUp = (window.scrollY - 350) / 5; 
+                        if (moveUp > 80) moveUp = 80;
+                    }
+                    header.style.transform = `translateY(-${moveUp}px)`;
+                }
+
+                isScrolling = false;
+            });
+            isScrolling = true;
+        }
+    });
 
     // =========================================
-    // EFFETTO COMPARSA ELEMENTI (SCROLL REVEAL)
+    // SCROLL REVEAL (INTERSECTION OBSERVER)
     // =========================================
-    
-    // 🔥 LA CORREZIONE È QUI: Ora cerca tutto ciò che ha la classe '.reveal' 
     const elementiDaAnimare = document.querySelectorAll('.info-box, .menu-item, .reveal');
-    
-    elementiDaAnimare.forEach(el => {
-        el.classList.add('reveal'); // Si assicura che tutti abbiano la classe base
-    });
+    elementiDaAnimare.forEach(el => el.classList.add('reveal'));
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('active'); // Li fa apparire!
+                entry.target.classList.add('active');
                 observer.unobserve(entry.target); 
             }
         });
     }, {
-        threshold: 0.1 
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px" // Fa scattare l'animazione un attimo prima per maggiore fluidità
     });
 
-    elementiDaAnimare.forEach(el => {
-        observer.observe(el);
-    });
+    elementiDaAnimare.forEach(el => observer.observe(el));
 });

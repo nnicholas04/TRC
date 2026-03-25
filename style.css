@@ -1,5 +1,5 @@
 /* =========================================
-   VARIABILI DI STILE - Colori Rock
+   VARIABILI DI STILE E PRO DESIGN
    ========================================= */
 :root {
     --primary-color: #f8b400; /* Giallo Birra */
@@ -11,6 +11,8 @@
     --body-font: 'Open Sans', sans-serif;
     --heading-font: 'Oswald', sans-serif;
     --rock-font: 'Permanent Marker', cursive;
+    /* Transizione professionale (snappy ma fluida) */
+    --smooth-transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 /* =========================================
@@ -18,27 +20,29 @@
    ========================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
 html, body { overflow-x: hidden; width: 100%; }
-html { scroll-behavior: smooth; } /* Scorrimento dolce riattivato */
+html { scroll-behavior: smooth; } 
 
 body { 
     font-family: var(--body-font); 
     background-color: var(--bg-dark); 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('images/bg-texture.jpg');
+    background-image: linear-gradient(rgba(10, 10, 10, 0.85), rgba(10, 10, 10, 0.95)), url('images/bg-texture.jpg');
     background-size: cover; 
     background-attachment: fixed; 
     color: var(--text-main); 
     line-height: 1.6; 
-    padding-bottom: 70px; /* Spazio in fondo per la barra di navigazione fissa */
+    padding-bottom: 70px; 
 }
 
 h1, h2, h3 { font-family: var(--heading-font); text-transform: uppercase; letter-spacing: 1px; }
-a { text-decoration: none; color: var(--text-main); transition: all 0.3s ease-in-out; }
+a { text-decoration: none; color: var(--text-main); transition: var(--smooth-transition); }
 
 /* =========================================
-   HEADER
+   HEADER (EFFETTO VETRO SFOCATO)
    ========================================= */
 header {
-    background-color: rgba(0, 0, 0, 0.95); 
+    background-color: rgba(5, 5, 5, 0.85); 
+    backdrop-filter: blur(12px); /* Effetto vetro elegante */
+    -webkit-backdrop-filter: blur(12px);
     padding: 15px; 
     display: flex; 
     justify-content: center; 
@@ -46,33 +50,41 @@ header {
     width: 100%; 
     top: 0; 
     z-index: 1000;
-    border-bottom: 2px solid var(--accent-color); 
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.8); 
+    border-bottom: 1px solid rgba(214, 40, 40, 0.4); 
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6); 
     height: 75px;
+    will-change: transform; /* Ottimizza lo scrolling */
 }
 .logo img { height: 45px; }
 
 /* =========================================
-   BOTTOM NAVIGATION BAR (Stile App)
+   BOTTOM NAVIGATION BAR
    ========================================= */
 nav {
     position: fixed; 
     bottom: 0; 
     left: 0; 
     width: 100%; 
-    background-color: #000;
-    border-top: 2px solid var(--accent-color); 
+    background-color: rgba(5, 5, 5, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(214, 40, 40, 0.3); 
     z-index: 1001; 
-    box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.9);
+    box-shadow: 0 -4px 25px rgba(0, 0, 0, 0.8);
 }
 nav ul { list-style: none; display: flex; justify-content: space-around; align-items: center; height: 70px; }
 nav ul li { flex: 1; text-align: center; }
-nav ul li a { display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--heading-font); font-size: 0.8rem; color: var(--text-muted); gap: 5px; transition: 0.3s; }
-nav ul li a i { font-size: 1.5rem; }
-nav ul li a.active, nav ul li a:hover { color: var(--accent-color) !important; text-shadow: 0 0 10px var(--accent-color); }
+nav ul li a { display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: var(--heading-font); font-size: 0.8rem; color: var(--text-muted); gap: 5px; transition: var(--smooth-transition); }
+nav ul li a i { font-size: 1.5rem; transition: var(--smooth-transition); }
+
+/* Effetto Hover protetto per cellulari */
+@media (hover: hover) {
+    nav ul li a:hover { color: var(--text-main); transform: translateY(-2px); }
+}
+nav ul li a.active { color: var(--accent-color) !important; text-shadow: 0 0 15px rgba(214, 40, 40, 0.5); }
 
 /* =========================================
-   HERO SECTION
+   HERO SECTIONS
    ========================================= */
 .hero {
     height: 55vh; 
@@ -89,204 +101,183 @@ nav ul li a.active, nav ul li a:hover { color: var(--accent-color) !important; t
 .hero::before {
     content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
     background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMSIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbHRlcj0idXJsKCNuKSIvPjwvc3ZnPg==') repeat;
-    opacity: 0.1; z-index: 1;
+    opacity: 0.08; z-index: 1;
 }
 
 .hero-home {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('images/hero-home.jpg') center center/cover no-repeat;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.85)), url('images/hero-home.jpg') center center/cover no-repeat;
     display: grid; grid-template-rows: 1fr auto 1fr; align-items: center; justify-items: center; width: 100%; padding: 0;
 }
 .hero-text { grid-row: 2; z-index: 2; padding: 0 15px; }
 .hero-action { grid-row: 3; display: flex; align-items: center; justify-content: center; height: 100%; z-index: 2; }
-.hero-menu { background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('images/hero-menu.jpg') center center/cover no-repeat; }
+.hero-menu { background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.9)), url('images/hero-menu.jpg') center center/cover no-repeat; }
 
-.hero h1 { font-size: 3.2rem; line-height: 1.1; color: #fff; text-shadow: 3px 3px 6px #000, 0 0 20px rgba(214, 40, 40, 1); margin-bottom: 10px; z-index: 2; }
-.motto-rock { font-family: var(--rock-font); font-size: 1.6rem; color: var(--primary-color); text-shadow: 2px 2px 4px #000, 0 0 12px rgba(248, 180, 0, 0.9); margin-bottom: 30px; z-index: 2; }
-.btn { display: inline-block; background: linear-gradient(45deg, #1f1f1f, #333, #1f1f1f); border: 2px solid #666; color: #fff; padding: 12px 30px; font-family: var(--heading-font); font-size: 1.2rem; border-radius: 8px; z-index: 2; transition: 0.3s;}
-.btn:hover { border-color: var(--accent-color); box-shadow: 0 0 20px rgba(214, 40, 40, 0.5); transform: translateY(-3px); }
+.hero h1 { font-size: 3.2rem; line-height: 1.1; color: #fff; text-shadow: 0 5px 20px rgba(0,0,0,0.8); margin-bottom: 10px; z-index: 2; }
+.motto-rock { font-family: var(--rock-font); font-size: 1.6rem; color: var(--primary-color); text-shadow: 0 5px 15px rgba(0,0,0,0.8); margin-bottom: 30px; z-index: 2; }
+
+.btn { 
+    display: inline-block; 
+    background: linear-gradient(45deg, #1f1f1f, #2a2a2a, #1f1f1f); 
+    border: 1px solid #444; 
+    color: #fff; 
+    padding: 12px 30px; 
+    font-family: var(--heading-font); 
+    font-size: 1.2rem; 
+    border-radius: 8px; 
+    z-index: 2; 
+    transition: var(--smooth-transition);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4);
+}
+@media (hover: hover) {
+    .btn:hover { 
+        border-color: var(--accent-color); 
+        box-shadow: 0 8px 25px rgba(214, 40, 40, 0.4); 
+        transform: translateY(-4px); 
+    }
+}
 
 /* =========================================
-   SEZIONE CONTATTI E ORARI
+   SEZIONE CONTATTI E INFO BOX
    ========================================= */
 .info-section { padding: 50px 15px; display: flex; flex-direction: column; align-items: center; gap: 30px; }
-.info-box { background-color: #000; padding: 30px 20px; border-radius: 12px; width: 100%; max-width: 400px; text-align: center; border-top: 4px solid var(--primary-color); box-shadow: 0 5px 20px rgba(0,0,0,0.8); transition: 0.3s; }
-.info-box:hover { transform: translateY(-5px); box-shadow: 0 5px 25px rgba(248, 180, 0, 0.3); }
+.info-box { 
+    background-color: #0d0d0d; 
+    padding: 35px 25px; 
+    border-radius: 12px; 
+    width: 100%; 
+    max-width: 400px; 
+    text-align: center; 
+    border: 1px solid #1a1a1a;
+    border-top: 3px solid var(--primary-color); 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5); 
+    transition: var(--smooth-transition); 
+}
+@media (hover: hover) {
+    .info-box:hover { transform: translateY(-5px); box-shadow: 0 12px 35px rgba(248, 180, 0, 0.2); }
+}
 .info-box h2 { color: var(--primary-color); margin-bottom: 20px; font-size: 2rem; }
-.info-box p { font-size: 1.1rem; margin-bottom: 15px; }
+.info-box p { font-size: 1.1rem; margin-bottom: 15px; color: #ddd; }
 
 /* =========================================
-   INDICE RAPIDO MENU (BOTTONI A VISTA / MULTIRIGA)
+   INDICE RAPIDO MENU (BOTTONI A GRIGLIA)
    ========================================= */
 .menu-index-container {
     background-color: #050505;
-    padding: 20px 15px;
-    border-bottom: 2px solid var(--accent-color);
+    padding: 25px 15px;
+    border-bottom: 1px solid #222;
 }
 .menu-index {
     display: flex;
-    flex-wrap: wrap; /* 🔥 Questa è la magia: li manda a capo invece di nasconderli! */
-    justify-content: center; /* Centra i bottoni per un look più ordinato */
-    gap: 10px; /* Spazio tra i bottoni */
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 12px; 
 }
 .index-btn {
     display: flex;
     align-items: center;
-    gap: 6px;
-    background-color: #1a1a1a;
-    color: #fff;
-    padding: 8px 16px; /* Resi leggermente più compatti per farne entrare di più */
+    gap: 8px;
+    background-color: #111;
+    color: #eee;
+    padding: 10px 18px; 
     border-radius: 25px;
     font-family: var(--heading-font);
     font-size: 0.85rem;
     text-transform: uppercase;
-    white-space: nowrap; /* Evita che il testo dentro un singolo bottone si spezzi a metà */
-    border: 1px solid #333;
+    white-space: nowrap; 
+    border: 1px solid #222;
+    transition: var(--smooth-transition);
 }
-.index-btn i { color: var(--primary-color); }
-.index-btn:hover, .index-btn:active { 
-    background-color: var(--primary-color); 
-    color: #000; 
-    border-color: var(--primary-color); 
-}
-.index-btn:hover i, .index-btn:active i { color: #000; }
+.index-btn i { color: var(--primary-color); transition: var(--smooth-transition); }
 
-/* Distanza dal margine superiore quando si clicca l'indice */
-.menu-category { margin-bottom: 50px; scroll-margin-top: 20px; }
+@media (hover: hover) {
+    .index-btn:hover { 
+        background-color: var(--primary-color); 
+        color: #000; 
+        border-color: var(--primary-color); 
+        transform: translateY(-2px);
+    }
+    .index-btn:hover i { color: #000; }
+}
+.menu-category { margin-bottom: 60px; scroll-margin-top: 30px; }
 
 /* =========================================
-   PAGINA MENU
+   PAGINA MENU (GRIGLIE E PRODOTTI)
    ========================================= */
-.menu-section { padding: 40px 10px; width: 100%; }
-.menu-category h2 { color: var(--accent-color); font-size: 2.2rem; text-shadow: 0 0 10px rgba(214, 40, 40, 0.5); margin-bottom: 25px; text-align: center; }
-.menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
-.menu-item { background-image: linear-gradient(rgba(18, 18, 18, 0.95), rgba(18, 18, 18, 0.98)), url('images/bg-texture.jpg'); padding: 15px 12px; border-radius: 10px; border: 1px solid #333; display: flex; flex-direction: column; transition: 0.3s;}
-.menu-item:hover { border-color: var(--accent-color); transform: translateY(-3px); box-shadow: 0 0 15px rgba(214, 40, 40, 0.4); }
+.menu-section { padding: 50px 10px; width: 100%; }
+.menu-category h2 { color: var(--accent-color); font-size: 2.2rem; text-shadow: 0 0 15px rgba(214, 40, 40, 0.3); margin-bottom: 30px; text-align: center; }
+.menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
 
-.menu-item-header { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; margin-bottom: 8px; }
-.menu-item-header h3 { font-size: 1.1rem; line-height: 1.2; color: #fff; }
-
-/* PREZZI BLOCCATI: Non vanno mai a capo */
-.price { color: var(--primary-color); font-size: 1.2rem; font-weight: bold; white-space: nowrap; flex-shrink: 0; }
-
-.menu-item p { color: var(--text-muted); font-size: 0.85rem; line-height: 1.4; margin-bottom: 10px; flex-grow: 1; }
-.price-variants { margin-top: auto; display: flex; flex-direction: column; gap: 4px; font-size: 0.9rem; }
-.price-variants span { background-color: rgba(248, 180, 0, 0.1); padding: 3px 5px; border-radius: 4px; border: 1px solid rgba(248, 180, 0, 0.2); text-align: center; color: var(--primary-color); }
-
-/* =========================================
-   FOOTER
-   ========================================= */
-footer { background-color: #000; text-align: center; padding: 40px 15px 90px 15px; border-top: 3px solid #333; }
-
-.social-title {
-    color: var(--primary-color);
-    font-family: var(--heading-font);
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-    letter-spacing: 1px;
-    text-shadow: 0 0 10px rgba(248, 180, 0, 0.3);
+.menu-item { 
+    background-color: #0d0d0d;
+    background-image: linear-gradient(rgba(13, 13, 13, 0.95), rgba(13, 13, 13, 0.98)), url('images/bg-texture.jpg'); 
+    padding: 18px 15px; 
+    border-radius: 10px; 
+    border: 1px solid #1f1f1f; 
+    display: flex; 
+    flex-direction: column; 
+    transition: var(--smooth-transition);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+@media (hover: hover) {
+    .menu-item:hover { border-color: rgba(214, 40, 40, 0.5); transform: translateY(-4px); box-shadow: 0 8px 25px rgba(214, 40, 40, 0.2); }
 }
 
-.social-links { display: flex; justify-content: center; gap: 25px; margin-bottom: 25px; font-size: 2.2rem; }
-.social-links a { color: var(--primary-color); transition: 0.3s; display: inline-block; }
-.social-links a:hover { text-shadow: 0 0 15px var(--primary-color); transform: scale(1.1); }
-footer p { font-size: 0.9rem; color: #666; }
+.menu-item-header { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-bottom: 10px; }
+.menu-item-header h3 { font-size: 1.15rem; line-height: 1.3; color: #fff; letter-spacing: 0.5px; }
+.price { color: var(--primary-color); font-size: 1.25rem; font-weight: bold; white-space: nowrap; flex-shrink: 0; }
+.menu-item p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.5; margin-bottom: 12px; flex-grow: 1; }
+
+.price-variants { margin-top: auto; display: flex; flex-direction: column; gap: 6px; font-size: 0.95rem; }
+.price-variants span { background-color: rgba(248, 180, 0, 0.05); padding: 4px 6px; border-radius: 6px; border: 1px solid rgba(248, 180, 0, 0.15); text-align: center; color: var(--primary-color); }
 
 /* =========================================
    PULSANTI E LINK CONTATTI
    ========================================= */
 .map-btn {
-    display: inline-block;
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: rgba(248, 180, 0, 0.1); 
-    border: 1px solid var(--primary-color); 
-    color: var(--primary-color);
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: 0.3s;
+    display: inline-block; margin-top: 15px; padding: 12px 22px;
+    background-color: rgba(248, 180, 0, 0.05); border: 1px solid var(--primary-color); 
+    color: var(--primary-color); border-radius: 8px; font-size: 1rem; font-weight: bold; text-transform: uppercase; transition: var(--smooth-transition);
+}
+@media (hover: hover) {
+    .map-btn:hover { background-color: var(--primary-color); color: #000; box-shadow: 0 5px 20px rgba(248, 180, 0, 0.4); transform: translateY(-3px); }
 }
 
-.map-btn:hover {
-    background-color: var(--primary-color);
-    color: #000; 
-    box-shadow: 0 0 15px rgba(248, 180, 0, 0.6); 
-    transform: translateY(-3px);
-}
-
-.contact-link {
-    color: var(--primary-color);
-    text-decoration: underline;
-    text-decoration-color: rgba(248, 180, 0, 0.4);
-    text-underline-offset: 4px;
-    transition: 0.3s;
-}
-
-.contact-link:hover {
-    color: #fff;
-    text-decoration-color: #fff;
+.contact-link { color: var(--primary-color); text-decoration: underline; text-decoration-color: rgba(248, 180, 0, 0.3); text-underline-offset: 5px; transition: var(--smooth-transition); }
+@media (hover: hover) {
+    .contact-link:hover { color: #fff; text-decoration-color: #fff; }
 }
 
 /* =========================================
-   SEZIONE FEATURES (HOME)
+   SEZIONE FEATURES HOME (WELCOME TO THE ROCK)
    ========================================= */
-.features-grid { 
-    display: grid; 
-    grid-template-columns: repeat(1, 1fr); 
-    gap: 30px; 
+.features-grid { display: grid; grid-template-columns: repeat(1, 1fr); gap: 30px; }
+.feature-card { background-color: transparent; padding: 25px 15px; text-align: center; transition: var(--smooth-transition); }
+@media (hover: hover) {
+    .feature-card:hover { transform: translateY(-8px) scale(1.02); }
 }
-.feature-card { 
-    background-color: transparent; 
-    padding: 20px; 
-    border-radius: 0; 
-    border: none; 
-    box-shadow: none; 
-    transition: 0.3s; 
-}
-.feature-card:hover { 
-    transform: translateY(-8px); 
-}
-.feature-icon { 
-    font-size: 3.5rem; 
-    margin-bottom: 20px; 
-    filter: drop-shadow(0 0 8px rgba(255,255,255,0.3)); 
-}
-.feature-card h3 { font-size: 1.5rem; margin-bottom: 10px; color: #fff; }
-.feature-card p { color: var(--text-muted); font-size: 1rem; }
+.feature-icon { font-size: 3.5rem; margin-bottom: 20px; filter: drop-shadow(0 4px 10px rgba(255,255,255,0.15)); }
+.feature-card h3 { font-size: 1.6rem; margin-bottom: 12px; color: #fff; }
+.feature-card p { color: var(--text-muted); font-size: 1.05rem; }
 
 /* =========================================
-   BACK TO TOP BUTTON
+   FOOTER E BOTTONE TORNA SU
    ========================================= */
+footer { background-color: #050505; text-align: center; padding: 50px 15px 100px 15px; border-top: 1px solid #1a1a1a; }
+.social-title { color: var(--primary-color); font-family: var(--heading-font); font-size: 1.8rem; margin-bottom: 25px; letter-spacing: 1px; }
+.social-links { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; font-size: 2.2rem; }
+.social-links a { color: var(--primary-color); transition: var(--smooth-transition); display: inline-block; }
+
+@media (hover: hover) {
+    .social-links a:hover { transform: scale(1.15) translateY(-3px); filter: drop-shadow(0 5px 15px rgba(248,180,0,0.5)); }
+}
+footer p { font-size: 0.9rem; color: #666; }
+
 .back-to-top {
-    position: fixed;
-    bottom: 90px; /* Sta sopra la barra di navigazione mobile */
-    right: 20px;
-    background-color: var(--accent-color);
-    color: #fff;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2rem;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.8);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease-in-out;
-    z-index: 999;
+    position: fixed; bottom: 90px; right: 20px; background-color: var(--accent-color); color: #fff; width: 45px; height: 45px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.2rem; box-shadow: 0 4px 15px rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: var(--smooth-transition); z-index: 999;
 }
-
-.back-to-top.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.back-to-top:hover {
-    background-color: var(--primary-color);
-    color: #000;
-    transform: translateY(-5px);
+.back-to-top.show { opacity: 1; visibility: visible; }
+@media (hover: hover) {
+    .back-to-top:hover { background-color: var(--primary-color); color: #000; transform: translateY(-5px); }
 }
 
 /* =========================================
@@ -295,84 +286,48 @@ footer p { font-size: 0.9rem; color: #666; }
 @media(min-width: 768px) {
     body { padding-bottom: 0; } 
     
-    header { justify-content: flex-start; padding: 0 50px; }
-    .logo img { height: 55px; }
+    header { justify-content: flex-start; padding: 0 50px; background-color: transparent; border-bottom: none; box-shadow: none; backdrop-filter: none; background: linear-gradient(to bottom, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%); }
+    .logo img { height: 60px; }
 
-    nav { 
-        position: fixed; 
-        top: 0; 
-        right: 50px; 
-        bottom: auto;
-        left: auto;
-        background-color: transparent; 
-        border: none; 
-        box-shadow: none;
-        width: auto; 
-        height: 75px; 
-        z-index: 1005; 
-    }
+    nav { position: fixed; top: 0; right: 50px; bottom: auto; left: auto; background-color: transparent; border: none; box-shadow: none; width: auto; height: 90px; backdrop-filter: none; z-index: 1005; }
     nav ul { height: 100%; justify-content: flex-end; align-items: center; gap: 40px; }
     nav ul li { flex: none; }
-    nav ul li a { flex-direction: row; font-size: 1.2rem; text-transform: uppercase; }
+    nav ul li a { flex-direction: row; font-size: 1.1rem; text-transform: uppercase; font-weight: 600; letter-spacing: 1px; color: #ddd; }
     nav ul li a i { display: none; } 
-    nav ul li a:hover { transform: translateY(-2px); }
-
+    
     .hero { height: 75vh; }
     .hero h1 { font-size: 6rem; }
     .motto-rock { font-size: 2.2rem; }
 
-    .info-section { 
-        display: flex;
-        flex-direction: row; 
-        justify-content: center; 
-        align-items: stretch; 
-        width: 100%;
-        max-width: 100%; 
-        margin: 0 auto; 
-        gap: 80px; 
-    }
+    .info-section { flex-direction: row; justify-content: center; align-items: stretch; max-width: 100%; margin: 0 auto; gap: 80px; }
     .info-box { max-width: 450px; padding: 50px; }
 
-    .features-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    /* 🔥 MANTENUTE LE 3 COLONNE AFFIANCATE PER PC COME RICHIESTO! */
+    .features-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; padding: 0 40px; }
 
-    .menu-section { 
-        padding: 100px 20px; 
-        width: 100%;
-        max-width: 1400px;
-        margin: 0 auto;
-    }
+    .menu-section { padding: 80px 20px; width: 100%; max-width: 1400px; margin: 0 auto; }
     .menu-category h2 { text-align: left; font-size: 3.5rem; }
-    .menu-grid { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
+    .menu-grid { grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 30px; }
     
-    .menu-item-header { 
-        flex-direction: row; 
-        justify-content: space-between; 
-        align-items: center; 
-        gap: 15px; 
-    }
-    .menu-item-header h3 { 
-        font-size: 1.5rem; 
-        margin: 0;
-    }
-    .price { font-size: 1.5rem; }
-    
+    .menu-item-header { flex-direction: row; justify-content: space-between; align-items: center; gap: 15px; margin-bottom: 12px; }
+    .menu-item-header h3 { font-size: 1.4rem; margin: 0; }
+    .price { font-size: 1.4rem; }
     .menu-item p { font-size: 1rem; }
-    .price-variants { flex-direction: row; }
+    .price-variants { flex-direction: row; gap: 10px; }
 
-    .back-to-top { bottom: 30px; right: 30px; }
-    
-    footer { padding: 50px 20px; }
+    .back-to-top { bottom: 30px; right: 30px; width: 55px; height: 55px; font-size: 1.3rem; }
+    footer { padding: 60px 20px; }
 }
 
 /* =========================================
-   EFFETTO COMPARSA ALLO SCORRIMENTO (REVEAL)
+   EFFETTO COMPARSA ALLO SCORRIMENTO
    ========================================= */
 .reveal {
     opacity: 0;
-    transform: translateY(40px); 
-    transition: all 0.6s ease-out; 
+    transform: translateY(30px) scale(0.98); /* Effetto scalatura elegante */
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); 
 }
 .reveal.active {
     opacity: 1;
-    transform: translateY(0); 
+    transform: translateY(0) scale(1); 
 }
